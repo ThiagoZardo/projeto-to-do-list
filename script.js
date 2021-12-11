@@ -1,11 +1,13 @@
 //Adcionar a lista
 let textoDigitado = document.getElementById('texto-tarefa');
 let btnAdd = document.getElementById('criar-tarefa');
+let listaTarefas = document.getElementById('lista-tarefas');
+let li = listaTarefas.childNodes;
 
 function adcionarNaLista(){
     var linha = document.createElement('li');
     if(textoDigitado.value !== ''){
-        document.querySelector('ol').appendChild(linha);
+        listaTarefas.appendChild(linha);
         linha.innerText = textoDigitado.value;
         textoDigitado.value = '';
         linha.addEventListener('click', selecionaItem);
@@ -36,8 +38,15 @@ function riscar(event){
     }else{
         event.target.classList.add('completed');
     }
-
     //event.target.classList.toggle('completed');
 }
 
 //Limpa tudo
+let btnApagar = document.getElementById('apaga-tudo');
+btnApagar.addEventListener('click',apagar)
+
+function apagar(){
+    for(let i = li.length-1; i >= 0; i -= 1){
+        li[i].remove();
+    }
+}
