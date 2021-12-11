@@ -32,6 +32,7 @@ function limparCor(){
 }
 
 //Tarefas Realizadas
+//Recebi a ajuda da Luá na para entender melhor como funcionam os métodos do classList
 function riscar(event){
     if(event.target.classList.contains('completed')){
         event.target.classList.remove('completed');
@@ -42,6 +43,7 @@ function riscar(event){
 }
 
 //Limpa tudo
+//Luá e Imar me ajudaram aqui a entender como funciona o for de trás pra frente
 let btnApagar = document.getElementById('apaga-tudo');
 btnApagar.addEventListener('click',apagar)
 
