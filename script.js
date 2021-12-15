@@ -64,3 +64,16 @@ function removeFinalizado(){
         riscados[i].remove();
     }
 }
+
+//Salvar Tarefas
+//Ajustar edição de elementos salvos no localStorage
+let salvar = document.getElementById('salvar-tarefas');
+salvar.addEventListener('click', salvarTarefas);
+
+function salvarTarefas(){
+    localStorage.setItem('listaDeTarefas', listaTarefas.innerHTML);
+}
+
+window.onload = function(){
+    listaTarefas.innerHTML = localStorage.getItem('listaDeTarefas');
+}
