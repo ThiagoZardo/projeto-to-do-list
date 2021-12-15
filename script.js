@@ -3,6 +3,8 @@ let textoDigitado = document.getElementById('texto-tarefa');
 let btnAdd = document.getElementById('criar-tarefa');
 let listaTarefas = document.getElementById('lista-tarefas');
 let li = listaTarefas.childNodes;
+let limpa = document.querySelector('#remover-finalizados');
+
 
 function adcionarNaLista(){
     var linha = document.createElement('li');
@@ -52,3 +54,12 @@ function apagar(){
         li[i].remove();
     }
 }
+
+
+//Remove os Finalizados
+function removeFinalizado(event){
+    for(let i = 0; i < li.length; i+= 1){
+        li[i].classList.remove('completed')
+    }
+}
+limpa.addEventListener('click',removeFinalizado);
