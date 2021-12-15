@@ -55,11 +55,12 @@ function apagar(){
     }
 }
 
-
+limpa.addEventListener('click',removeFinalizado);
 //Remove os Finalizados
-function removeFinalizado(event){
-    for(let i = 0; i < li.length; i+= 1){
-        li[i].classList.remove('completed')
+
+function removeFinalizado(){
+    let riscados = document.querySelectorAll('.completed')
+    for(let i = 0; i < riscados.length; i += 1){
+        riscados[i].remove();
     }
 }
-limpa.addEventListener('click',removeFinalizado);
