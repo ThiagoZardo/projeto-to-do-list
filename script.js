@@ -80,8 +80,8 @@ function salvarTarefas(){
 window.onload = function(){
     listaTarefas.innerHTML = localStorage.getItem('listaDeTarefas');
     for(let i = 0; i < listaTarefas.childNodes.length; i+=1){
-        listaTarefas.addEventListener('click', selecionaItem);
-        listaTarefas.addEventListener('dblclick', riscar);
+        listaTarefas.childNodes[i].addEventListener('click', selecionaItem);
+        listaTarefas.childNodes[i].addEventListener('dblclick', riscar);
     }
      
 }
