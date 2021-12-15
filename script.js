@@ -6,6 +6,7 @@ let li = listaTarefas.childNodes;
 let limpa = document.querySelector('#remover-finalizados');
 
 
+
 function adcionarNaLista(){
     var linha = document.createElement('li');
     if(textoDigitado.value !== ''){
@@ -14,6 +15,7 @@ function adcionarNaLista(){
         textoDigitado.value = '';
         linha.addEventListener('click', selecionaItem);
         linha.addEventListener('dblclick', riscar);     
+        
     };
     linha.classList.add('itemLista');      
 };
@@ -53,6 +55,7 @@ function apagar(){
     for(let i = li.length-1; i >= 0; i -= 1){
         li[i].remove();
     }
+    localStorage.removeItem('listaDeTarefas', listaTarefas.innerHTML);
 }
 
 limpa.addEventListener('click',removeFinalizado);
@@ -76,4 +79,9 @@ function salvarTarefas(){
 
 window.onload = function(){
     listaTarefas.innerHTML = localStorage.getItem('listaDeTarefas');
+    for(let i = 0; i < listaTarefas.childNodes.length; i+=1){
+        listaTarefas.addEventListener('click', selecionaItem);
+        listaTarefas.addEventListener('dblclick', riscar);
+    }
+     
 }
