@@ -7,7 +7,6 @@ let limpa = document.querySelector('#remover-finalizados');
 let removeSelect = document.getElementById('remover-selecionado') ;
 
 
-
 function adcionarNaLista(){
     var linha = document.createElement('li');
     if(textoDigitado.value !== ''){
@@ -90,29 +89,39 @@ window.onload = function(){
 }
 
 
-//Move para Cima e para Baixo em construção
+//Move para Cima 
 let cima = document.querySelector('#mover-cima');
 cima.addEventListener('click',moverCima);
-let moveUp = document.querySelector('.itemLista');
 
-function moverCima(event){
-    
-    for(let i = 0; i < document.querySelector('.itemLista').length; i+=1){
-        moveUp[i].previousElementSibling;
-    }
+function moverCima(){
+    for(let i = 1; i < li.length; i+=1){
+        if(li[i].classList.contains('select')){
+            li[i].after(li[i-1]);
+        }
+    }    
 }
 
 
+//Move para Baixo 
+let baixo = document.querySelector('#mover-baixo');
+baixo.addEventListener('click',moverBaixo);
+
+function moverBaixo(){
+    for(let i = li.length-2; i >= 0; i-=1){
+        if(li[i].classList.contains('select')){
+            li[i].before(li[i+1]);
+        }
+    }    
+}
 
 
 //Remove selecionado
 removeSelect.addEventListener('click', removeSelecao);
 
 function removeSelecao(){
-        
+
     let selecionado = document.querySelector('.select')
     selecionado.remove();
-     
 }
 
 
