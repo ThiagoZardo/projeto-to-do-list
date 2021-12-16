@@ -4,6 +4,7 @@ let btnAdd = document.getElementById('criar-tarefa');
 let listaTarefas = document.getElementById('lista-tarefas');
 let li = listaTarefas.childNodes;
 let limpa = document.querySelector('#remover-finalizados');
+let removeSelect = document.getElementById('remover-selecionado') ;
 
 
 
@@ -14,8 +15,7 @@ function adcionarNaLista(){
         linha.innerText = textoDigitado.value;
         textoDigitado.value = '';
         linha.addEventListener('click', selecionaItem);
-        linha.addEventListener('dblclick', riscar);     
-        
+        linha.addEventListener('dblclick', riscar);  
     };
     linha.classList.add('itemLista');      
 };
@@ -25,13 +25,15 @@ btnAdd.addEventListener('click', adcionarNaLista);
 //Selecionar itens na lista
 function selecionaItem(event){
     limparCor();
-    event.target.style.backgroundColor = 'rgb(128,128,128)';;
+    event.target.style.backgroundColor = 'rgb(128,128,128)';
+    event.target.classList.add('select')
 }
 
 function limparCor(){
     let limpa = document.querySelectorAll('.itemLista');
     for(let i = 0; i < limpa.length; i+=1){
         limpa[i].style.backgroundColor = 'white';
+        limpa[i].classList.remove('select');
     }
 }
 
@@ -58,6 +60,7 @@ function apagar(){
     localStorage.removeItem('listaDeTarefas', listaTarefas.innerHTML);
 }
 
+
 limpa.addEventListener('click',removeFinalizado);
 //Remove os Finalizados
 
@@ -67,6 +70,7 @@ function removeFinalizado(){
         riscados[i].remove();
     }
 }
+
 
 //Salvar Tarefas
 //Ajustar edição de elementos salvos no localStorage
@@ -83,5 +87,49 @@ window.onload = function(){
         listaTarefas.childNodes[i].addEventListener('click', selecionaItem);
         listaTarefas.childNodes[i].addEventListener('dblclick', riscar);
     }
+}
+
+
+//Move para Cima e para Baixo em construção
+let cima = document.querySelector('#mover-cima');
+cima.addEventListener('click',moverCima);
+let moveUp = document.querySelector('.itemLista');
+
+function moverCima(event){
+    
+    for(let i = 0; i < document.querySelector('.itemLista').length; i+=1){
+        moveUp[i].previousElementSibling;
+    }
+}
+
+
+
+
+//Remove selecionado
+removeSelect.addEventListener('click', removeSelecao);
+
+function removeSelecao(){
+        
+    let selecionado = document.querySelector('.select')
+    selecionado.remove();
      
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
