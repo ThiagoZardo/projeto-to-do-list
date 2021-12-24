@@ -1,3 +1,8 @@
+*{
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
 .itemLista{
     background-color: white;
 }
@@ -6,3 +11,52 @@
     text-decoration: line-through solid rgb(0, 0, 0);
 }
 
+#lista-tarefas{
+    margin-top: 50px;
+}
+
+main button{
+    width: auto;
+    height: 30px;
+    border-radius: 20px;
+    color: white;
+    padding: 0 2%;
+    background-color: blue;
+    border: 0;
+    cursor: pointer;
+}
+
+main button:hover{
+    background-color: rgba(0,0,255,0.7)
+}
+
+footer{
+    width: 100%;
+    height: 50px;
+    background-color: blue;
+    position: fixed;
+    bottom: 0;
+    color: white;
+}
+
+footer p{
+    margin-top: 20px;
+}
+
+footer a{
+    text-decoration: none;
+    color: white;
+}
+
+
+@media screen and (max-width: 960px){
+    main button{
+        margin-top: 10px;
+    } 
+
+    #lista-tarefas{
+        max-height: 100%;
+        overflow-y: scroll;
+    }
+    
+}

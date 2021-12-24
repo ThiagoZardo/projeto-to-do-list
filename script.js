@@ -90,6 +90,7 @@ window.onload = function(){
 
 
 //Move para Cima 
+//Recebi ajuda da Sheila Nakashima que me apresentou o funcionamento do after e before
 let cima = document.querySelector('#mover-cima');
 cima.addEventListener('click',moverCima);
 
